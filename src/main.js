@@ -7,8 +7,8 @@ import Routes from './routes'
 import {
   firestorePlugin
 } from 'vuefire'
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+
+
 
 Vue.config.productionTip = false;
 
@@ -20,11 +20,7 @@ const router = new VueRouter({
 })
 
 Vue.use(firestorePlugin);
-firebase.initializeApp({
-  projectId: 'learn-vue-db76a',
-  databaseURL: 'https://learn-vue-db76a.firebaseio.com/'
-});
-export const db = firebase.firestore()
+
 
 
 //filter
