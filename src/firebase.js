@@ -3,7 +3,7 @@ import 'firebase/firestore'
 
 
 firebase.initializeApp({
-    projectId: 'projectID',
-    databaseURL: 'databaseURL'
+    projectId: 'learn-vue-db76a',
+    databaseURL: 'https://learn-vue-db76a.firebaseio.com/'
 });
 export const db = firebase.firestore()
