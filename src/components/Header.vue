@@ -4,7 +4,7 @@
       <v-content>
         <v-container>
           <v-layout align-center justify-center>
-            <v-flex xs8>
+            <v-flex xs12 md8>
               <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-app-bar-nav-icon>
 
               <!-- <v-spacer class="hidden-md-and-up"></v-spacer> -->
