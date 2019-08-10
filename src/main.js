@@ -26,6 +26,15 @@ firebase.initializeApp({
 });
 export const db = firebase.firestore()
 
+
+//filter
+
+Vue.filter('snippet', function (value) {
+  return value.slice(0, 100) + ' ... ';
+})
+
+//endfilter
+
 new Vue({
   store,
   vuetify,
