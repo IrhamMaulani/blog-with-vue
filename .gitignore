@@ -21,3 +21,6 @@ yarn-error.log*
 *.sw?
 
 src/firebase.js
+firebase.json
+.firebaserc
+.firebase/hosting.ZGlzdA.cache
