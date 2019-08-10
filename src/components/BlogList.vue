@@ -24,7 +24,8 @@
           <v-card>
             <div v-for="blog in filteredSearch" :key="blog.id">
               <v-divider></v-divider>
-              <v-card-title class="display-1 ma-4">{{blog.title}}</v-card-title>
+              <v-card-title class="display-1 mx-4">{{blog.title}}</v-card-title>
+              <p class="mx-8 grey--text subtitle-2">{{blog.createdAt.toDate().toDateString()}}</p>
               <!-- <v-img
                 class="ml-8 mr-2"
                 src="../assets/ez.png"
@@ -57,10 +58,39 @@ export default {
       blogs: [],
       search: "",
       overlay: true,
-      limit: 1
+      limit: 5
     };
   },
-  methods: {},
+  methods: {
+    scroll() {
+      window.onscroll = () => {
+        let bottomOfWindow =
+          document.documentElement.scrollTop + window.innerHeight ===
+          document.documentElement.offsetHeight;
+
+        if (bottomOfWindow) {
+          //TODO Infinite Scroll
+        }
+      };
+    },
+
+    getData() {
+      this.$bind(
+        "blogs",
+        db
+          .collection("posts")
+          .orderBy("createdAt", "desc")
+          // .startAt("Y8XSUAoTACJKzRBe1akQ")
+          // .endAt("4QY7wGWyLdjJhuXJPxqR")
+          .limit(this.limit)
+      ).then(() => {
+        this.overlay = false;
+      });
+    }
+  },
+  mounted() {
+    this.scroll();
+  },
   computed: {
     filteredSearch: function() {
       return this.blogs.filter(blog => {
@@ -69,29 +99,13 @@ export default {
     }
   },
   created() {
-    // db.collection("posts")
-    //   .get()
-    //   .then(querySnapshot => {
-    //     // const documents = querySnapshot.docs.map(doc => doc.data());
-    //     // do something with documents
-    //     this.blogs = querySnapshot.docs.map(doc => doc.data());
-    //     this.overlay = false;
-    //   });
-
-    this.$bind(
-      "blogs",
-      db.collection("posts").orderBy("createdAt", "desc")
-      // .limit(2)
-    ).then(() => {
-      this.overlay = false;
-    });
-  },
-  firestore() {
-    return {
-      // blogs: db.collection("posts").orderBy("createdAt", "desc")
-      // readyCallback: () => (this.overlay = false)
-    };
+    this.getData();
   }
+  // firestore() {
+  //   return {
+  //     blogs: db.collection("posts").orderBy("createdAt", "desc")
+  //   };
+  // }
 };
 </script>
 

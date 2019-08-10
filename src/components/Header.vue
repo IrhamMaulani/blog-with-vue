@@ -25,12 +25,12 @@
 
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list-item>
-        <v-list-item-avatar>
+        <!-- <v-list-item-avatar>
           <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-        </v-list-item-avatar>
+        </v-list-item-avatar>-->
 
         <v-list-item-content>
-          <v-list-item-title>John Leider</v-list-item-title>
+          <v-list-item-title>Blog</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -59,7 +59,7 @@ export default {
       drawer: null,
       items: [
         { title: "Home", icon: "dashboard", url: "/" },
-        { title: "About", icon: "question_answer", url: "/data" },
+        // { title: "About", icon: "question_answer", url: "/data" },
         { title: "Add Blog", icon: "add_circle", url: "/add-blog" }
       ]
     };
