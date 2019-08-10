@@ -2,7 +2,7 @@
   <v-content>
     <v-container>
       <v-layout align-center justify-center>
-        <v-flex xs8>
+        <v-flex xs12 md8>
           <v-card class="pa-12">
             <v-card-title class="display-1 ma-4">{{blog.title}}</v-card-title>
             <v-card-text class="text--primary ma-6">

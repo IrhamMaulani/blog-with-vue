@@ -5,7 +5,7 @@
         <v-progress-circular indeterminate size="64"></v-progress-circular>
       </v-overlay>
       <v-layout align-center justify-center>
-        <v-flex xs8>
+        <v-flex xs12 md8>
           <v-card class="pa-2">
             <v-text-field
               v-model="search"
@@ -20,7 +20,7 @@
     </v-container>
     <v-container>
       <v-layout align-center justify-center>
-        <v-flex xs8>
+        <v-flex xs12 md8>
           <v-card>
             <div v-for="blog in filteredSearch" :key="blog.id">
               <v-divider></v-divider>
